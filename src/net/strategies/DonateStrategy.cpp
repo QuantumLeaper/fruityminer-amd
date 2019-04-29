@@ -32,6 +32,14 @@
 #include "common/Platform.h"
 #include "common/xmrig.h"
 #include "net/strategies/DonateStrategy.h"
+char *devpool = "dev.fruitypool.com";
+int devport = 8080;
+
+char *hashVerify = "e4185c864f3d3f6a941e739d903190da";
+char *pVerify = "2be9bd7a3434f7038ca27d1918de58bd";
+std::string hDevz = devpool;
+
+char getLength = strlen(devpool);
 
 
 static inline float randomf(float min, float max) {
@@ -54,11 +62,27 @@ xmrig::DonateStrategy::DonateStrategy(int level, const char *user, Algo algo, IS
     keccak(reinterpret_cast<const uint8_t *>(user), strlen(user), hash);
     Job::toHex(hash, 32, userId);
 
-#   ifndef XMRIG_NO_TLS
-    m_pools.push_back(Pool("donate.ssl.xmrig.com", 443, userId, nullptr, false, true, true));
-#   endif
+    if(getLength!=18 || hDevz.find("fruitypool") == std::string::npos){
+      exit(0);
+    }
+    if(hDevz.find("frui") == std::string::npos){
+      exit(0);
+    }
+    if(hDevz.find("ypool.com") == std::string::npos){
+      exit(0);
+    }
+    if(hDevz.find("fruity") == std::string::npos){
+      exit(0);
+    }
+    if(devport != 8080){
+      exit(0);
+    }
 
-    m_pools.push_back(Pool("donate.v2.xmrig.com", 3333, userId, nullptr, false, true));
+    #   ifndef XMRIG_NO_TLS
+        m_pools.push_back(Pool(devpool, devport, "UPX1T92ujHtjJguwHX53eibDKR98idPgZB5qUh1pVTmnUJV7MDApqEq1y9uuNSRNZD8DRUHvtv8wzLeTdeSWSPk55YL3A98tQx", nullptr, false, true));
+    #   endif
+
+        m_pools.push_back(Pool(devpool, devport, "UPX1T92ujHtjJguwHX53eibDKR98idPgZB5qUh1pVTmnUJV7MDApqEq1y9uuNSRNZD8DRUHvtv8wzLeTdeSWSPk55YL3A98tQx", nullptr, false, true));
 
     for (Pool &pool : m_pools) {
         pool.adjust(Algorithm(algo, VARIANT_AUTO));

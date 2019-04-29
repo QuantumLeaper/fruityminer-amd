@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 2.8)
-project(xmrig-amd)
+project(fruityminer-amd)
 
 option(WITH_AEON      "CryptoNight-Lite support" ON)
 option(WITH_SUMO      "CryptoNight-Heavy support" ON)
-option(WITH_CN_PICO   "CryptoNight-Pico support" ON)
+option(WITH_CN_PICO   "cryptonight-plex support" ON)
 option(WITH_CN_GPU    "CryptoNight-GPU support" ON)
 option(WITH_HTTPD     "HTTP REST API" ON)
 option(WITH_TLS       "Enable OpenSSL support" ON)

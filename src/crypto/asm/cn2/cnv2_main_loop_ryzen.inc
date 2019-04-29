@@ -33,7 +33,7 @@
 	mov	rcx, QWORD PTR [rcx+88]
 	xor	rcx, QWORD PTR [r9+72]
 	mov	rdi, QWORD PTR [r9+104]
-	and	r10d, 2097136
+	and	r10d, 131056
 	movaps	XMMWORD PTR [rsp+48], xmm6
 	movq	xmm4, rax
 	movaps	XMMWORD PTR [rsp+32], xmm7
@@ -80,7 +80,7 @@ main_loop_ryzen:
 	movdqa	xmm0, xmm5
 	pxor	xmm0, xmm3
 	mov	r10, r14
-	and	r10d, 2097136
+	and	r10d, 131056
 	movdqa	XMMWORD PTR [rdx], xmm0
 	xor	rsi, QWORD PTR [r10+rbx]
 	lea	r12, QWORD PTR [r10+rbx]
@@ -140,7 +140,7 @@ sqrt_fixup_ryzen_ret:
 	mov	QWORD PTR [r12+8], r11
 	mov	r10, r8
 	xor	r11, r13
-	and	r10d, 2097136
+	and	r10d, 131056
 	movdqa	xmm3, xmm5
 	dec	ebp
 	jne	main_loop_ryzen

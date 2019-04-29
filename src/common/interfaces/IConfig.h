@@ -99,7 +99,7 @@ public:
         OclUnrollKey      = 1409,
         OclCompModeKey    = 1410,
 
-        // xmrig-proxy
+        // fruityminer-proxy
         AccessLogFileKey   = 'A',
         BindKey            = 'b',
         CoinKey            = 1104,

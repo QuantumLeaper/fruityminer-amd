@@ -39,7 +39,7 @@ Options:\n\
                                  cryptonight\n"
 #ifndef XMRIG_NO_AEON
 "\
-                                 cryptonight-lite\n"
+                                 cryptonight-upx\n"
 #endif
 #ifndef XMRIG_NO_SUMO
 "\
